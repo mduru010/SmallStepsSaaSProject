@@ -5,17 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createClient } from '@supabase/supabase-js';
 import { SessionContextProvider } from '@supabase/auth-helpers-react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const supabase = createClient(
   "https://eyahhaybhihawrvscusc.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV5YWhoYXliaGloYXdydnNjdXNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjA1NTQ3MTMsImV4cCI6MjAzNjEzMDcxM30.9yHz9KnIJabS3QGEUhbBOHoZVRGOf8nvMNi9PQ0VBdA" 
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV5YWhoYXliaGloYXdydnNjdXNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjA1NTQ3MTMsImV4cCI6MjAzNjEzMDcxM30.9yHz9KnIJabS3QGEUhbBOHoZVRGOf8nvMNi9PQ0VBdA"
 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <SessionContextProvider supabaseClient={supabase}>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </SessionContextProvider>
   </React.StrictMode>
 );
