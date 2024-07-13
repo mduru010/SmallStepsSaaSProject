@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+/* Reset default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffe5d9;
+    font-family: "Montserrat";
+  }
+  
+  .container {
+    text-align: center;
+    background-color: #ffe5d9;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .logo {
+    width: 100px;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .button {
+    background-color: #4285F4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #357ae8;
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 20px;
+    }
+  
+    .button {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+
+  /* src/landing.css */
+
+.button {
+  background-color: white;
+  color: #4285f4; /* Google Blue */
+  border: 2px solid #4285f4; /* Google Blue */
+  padding: 10px 20px 10px 50px; /* Adjust padding to accommodate the logo */
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 30px;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+  position: relative; /* Enable positioning for the logo */
+}
+
+.button::before {
+  content: ""; /* Create a pseudo-element for the logo */
+  width: 30px; /* Adjust size of the logo */
+  height: 20px;
+  background-image: url("https://s3-alpha.figma.com/hub/file/2729744958/2a5758d6-4edb-4047-87bb-e6b94dbbbab0-cover.png"); /* URL of the Google logo */
+  background-size: cover;
+  position: absolute; /* Position absolutely within the button */
+  left: 5px; /* Adjust position to align with padding */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for vertical centering */
+}
+
+.button:hover {
+  background-color: #357ae8;
+  color: #fff;
+}
+
+  

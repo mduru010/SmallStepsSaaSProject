@@ -1,0 +1,91 @@
+/* src/onboarding.css */
+
+.onboarding-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 10px auto 30px; /* Increased top margin to prevent bleeding into the top of the page */
+    padding: 20px; /* Padding inside the container */
+    padding-top: 20px; /* Additional top padding */
+    text-align: center;
+    background-color: none; /* Background color for better contrast */
+
+    
+    color: #333; /* Text color for better visibility */
+  }
+  
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    width: 45%; /* 45% for better alignment in rows */
+    max-width: 200px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  
+  .card.selected {
+    border-color: black; /* Google Blue */
+    transform: scale(1.05);
+  }
+  
+  .card .icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+  
+  .card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  
+  .card p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .complete-button {
+    background-color: #4285f4; /* Google Blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .complete-button:hover {
+    background-color: #357ae8;
+  }
+  
+  @media (max-width: 768px) {
+    .onboarding-container {
+      margin-top: 500px; /* Adjust top margin for mobile */
+      padding-top: 30px; /* Adjust padding for mobile */
+    }
+    .card {
+      width: 90%; /* Full width for smaller screens */
+      max-width: none; /* No max-width constraint */
+    }
+  
+    .cards-container {
+      gap: 15px; /* More space between cards on smaller screens */
+    }
+  
+    .complete-button {
+      width: 90%;
+      padding: 15px;
+    }
+  }
+  

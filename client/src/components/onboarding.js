@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSession } from '@supabase/auth-helpers-react';
-import { useEffect } from 'react';
+import './onboarding.css';
+
+const habits = [
+  { id: 1, icon: '🧘', title: 'Meditation', description: 'Spend a few minutes each day to meditate and clear your mind.' },
+  { id: 2, icon: '📓', title: 'Journaling', description: 'Write down your thoughts and experiences to reflect on your day.' },
+  { id: 3, icon: '🏃‍♂️', title: 'Exercise', description: 'Engage in physical activities to keep your body healthy.' },
+  { id: 4, icon: '🥗', title: 'Healthy Eating', description: 'Incorporate more fruits and vegetables into your meals.' },
+  { id: 5, icon: '💤', title: 'Better Sleep', description: 'Improve your sleep quality with a consistent bedtime routine.' },
+];
 
 const Onboarding = () => {
   const session = useSession();
   const navigate = useNavigate();
+  const [selectedHabits, setSelectedHabits] = useState([]);
 
   useEffect(() => {
     if (!session) {
@@ -13,15 +22,38 @@ const Onboarding = () => {
     }
   }, [session, navigate]);
 
-  function completeOnboarding() {
+  const toggleHabitSelection = (habitId) => {
+    setSelectedHabits((prevSelected) =>
+      prevSelected.includes(habitId)
+        ? prevSelected.filter((id) => id !== habitId)
+        : [...prevSelected, habitId]
+    );
+  };
+
+  const completeOnboarding = () => {
+    console.log('Selected habits:', selectedHabits);
     navigate('/tasklist');
-  }
+  };
 
   return (
-    <div style={{ width: "400px", margin: "30px auto" }}>
-      <h2>Onboarding</h2>
-      <p>Welcome to the onboarding page!</p>
-      <button onClick={completeOnboarding}>Complete Onboarding</button>
+    <div className="onboarding-container">
+      <img src={'./onboarding-gif.gif'} alt="GIF Image" style={{ width: '200px', maxWidth: '100px' }} />
+      <h2>Choose Your Wellness Habits!</h2>
+      <p>Select Up To Three Wellness Habits You Want Focus On!</p>
+      <div className="cards-container">
+        {habits.map((habit) => (
+          <div
+            key={habit.id}
+            className={`card ${selectedHabits.includes(habit.id) ? 'selected' : ''}`}
+            onClick={() => toggleHabitSelection(habit.id)}
+          >
+            <div className="icon">{habit.icon}</div>
+            <h3>{habit.title}</h3>
+            <p>{habit.description}</p>
+          </div>
+        ))}
+      </div>
+      <button className="complete-button" onClick={completeOnboarding}>Complete Onboarding</button>
     </div>
   );
 };
