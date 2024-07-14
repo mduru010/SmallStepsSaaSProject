@@ -126,7 +126,8 @@ const Tasklist = () => {
 
   return (
     <div className="tasklist-container">
-      <h2>Tasklist</h2>
+      <img src={'./tasklist-gif.gif'} alt="GIF Image" style={{ width: '300px', maxWidth: '100px', height: '80px'}} />
+      <h2>Based on your selected wellness habits, here are your personalized to-do list items:</h2>
       <ul>
         {tasks.map((task, index) => (
           <li key={index}>
