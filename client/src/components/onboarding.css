@@ -1,5 +1,9 @@
 /* src/onboarding.css */
 
+body {
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
 .onboarding-container {
     width: 90%;
     max-width: 800px;
@@ -54,11 +58,13 @@
   }
   
   .complete-button {
-    background-color: #4285f4; /* Google Blue */
-    color: white;
+    background-color: #E0C4F6; /* Google Blue */
+    color: black;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
+    font-family: "Montserrat";
+    font-weight: bold;
     cursor: pointer;
     border-radius: 30px;
     margin-top: 20px;
@@ -66,7 +72,7 @@
   }
   
   .complete-button:hover {
-    background-color: #357ae8;
+    background-color: #ae7dd4;
   }
   
   @media (max-width: 768px) {

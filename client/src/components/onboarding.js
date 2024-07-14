@@ -45,8 +45,8 @@ const Onboarding = () => {
   return (
     <div className="onboarding-container">
        <img src={'./onboarding-gif.gif'} alt="GIF Image" style={{ width: '200px', maxWidth: '100px' }} />
-      <h2>Onboarding</h2>
-      <p>Welcome to the onboarding page! Select your wellness habits:</p>
+      <h2>Choose Your Wellness Habits</h2>
+      <p>Select Up To 3 Wellness Habits You Want to Focus On</p>
       {error && <p className="error-message">{error}</p>}
       <div className="cards-container">
         {habits.map((habit) => (
