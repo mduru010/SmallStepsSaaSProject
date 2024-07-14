@@ -15,6 +15,7 @@ const Onboarding = () => {
   const session = useSession();
   const navigate = useNavigate();
   const [selectedHabits, setSelectedHabits] = useState([]);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     if (!session) {
@@ -23,23 +24,30 @@ const Onboarding = () => {
   }, [session, navigate]);
 
   const toggleHabitSelection = (habitId) => {
-    setSelectedHabits((prevSelected) =>
-      prevSelected.includes(habitId)
-        ? prevSelected.filter((id) => id !== habitId)
-        : [...prevSelected, habitId]
-    );
+    if (selectedHabits.includes(habitId)) {
+      setSelectedHabits((prevSelected) =>
+        prevSelected.filter((id) => id !== habitId)
+      );
+    } else if (selectedHabits.length < 3) {
+      setSelectedHabits((prevSelected) => [...prevSelected, habitId]);
+    }
   };
 
   const completeOnboarding = () => {
-    console.log('Selected habits:', selectedHabits);
-    navigate('/tasklist');
+    if (selectedHabits.length === 0) {
+      setError('Please select at least one habit.');
+    } else {
+      localStorage.setItem('selectedHabits', JSON.stringify(selectedHabits));
+      navigate('/tasklist');
+    }
   };
 
   return (
     <div className="onboarding-container">
-      <img src={'./onboarding-gif.gif'} alt="GIF Image" style={{ width: '200px', maxWidth: '100px' }} />
-      <h2>Choose Your Wellness Habits!</h2>
-      <p>Select Up To Three Wellness Habits You Want Focus On!</p>
+       <img src={'./onboarding-gif.gif'} alt="GIF Image" style={{ width: '200px', maxWidth: '100px' }} />
+      <h2>Onboarding</h2>
+      <p>Welcome to the onboarding page! Select your wellness habits:</p>
+      {error && <p className="error-message">{error}</p>}
       <div className="cards-container">
         {habits.map((habit) => (
           <div

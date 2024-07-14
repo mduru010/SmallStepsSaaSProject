@@ -1,0 +1,77 @@
+.tasklist-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .tasklist-container h2 {
+    margin-bottom: 20px;
+    color: #333333;
+  }
+  
+  .tasklist-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .tasklist-container li {
+    background-color: #f2f2f2;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .task-item {
+    flex: 1; /* To allow text wrapping */
+  }
+  
+  .task-settings {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .time-picker,
+  .recurrence-select,
+  .notification-select {
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .add-to-calendar-button,
+  .dashboard-button {
+    display: block;
+    width: 100%;
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+  }
+  
+  .add-to-calendar-button:hover,
+  .dashboard-button:hover {
+    background-color: #357ae8;
+  }
+  
+  .add-to-calendar-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #666;
+  }
+  
